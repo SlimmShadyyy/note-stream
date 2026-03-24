@@ -15,7 +15,7 @@ export default function LandingPage() {
           </div>
           <span className="font-bold tracking-[0.2em] text-white text-sm uppercase">Note Stream</span>
         </div>
-        <a href="https://github.com/your-username/note-stream" target="_blank" className="text-[10px] font-bold tracking-widest bg-white/5 text-white px-6 py-2.5 rounded-sm hover:bg-white hover:text-black border border-white/10 transition-all uppercase">
+        <a href="https://github.com/SlimmShadyyy/note-stream" target="_blank" className="text-[10px] font-bold tracking-widest bg-white/5 text-white px-6 py-2.5 rounded-sm hover:bg-white hover:text-black border border-white/10 transition-all uppercase">
           Source Code & Docs
         </a>
       </nav>

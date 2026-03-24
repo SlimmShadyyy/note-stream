@@ -21,7 +21,7 @@ const SmartNoteWidget = () => {
     const currentVideoId = getVideoId();
     if (currentVideoId && isOpen) {
       setVideoId(currentVideoId);
-      fetch(`http://localhost:5000/api/notes/${currentVideoId}`)
+      fetch(`https://note-stream-api-8agu.onrender.com/api/notes/${currentVideoId}`)
         .then(res => res.json())
         .then(data => setNotes(data.content || ''))
         .catch(err => console.error("Could not load notes", err));
@@ -33,7 +33,7 @@ const SmartNoteWidget = () => {
 
     setSaveStatus('Saving...');
     const delayDebounceFn = setTimeout(() => {
-      fetch('http://localhost:5000/api/notes', {
+      fetch('https://note-stream-api-8agu.onrender.com/api/notes', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -55,7 +55,7 @@ const SmartNoteWidget = () => {
     setAnswer('');
 
     try {
-      const response = await fetch('http://localhost:5000/api/ask-ai', {
+      const response = await fetch('https://note-stream-api-8agu.onrender.com/api/ask-ai', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({
@@ -76,7 +76,7 @@ const SmartNoteWidget = () => {
   if (!isOpen) {
     return (
       <button className="floating-toggle-btn" onClick={() => setIsOpen(true)}>
-        ⚡ Notes
+        Notes
       </button>
     )
   }
@@ -84,7 +84,7 @@ const SmartNoteWidget = () => {
   return (
     <div className="smart-note-container">
       <div className="header">
-        <h3>⚡ Note Stream <span style={{ fontSize: '10px', color: '#666', fontWeight: 'normal' }}>{saveStatus}</span></h3>
+        <h3>Note Stream <span style={{ fontSize: '10px', color: '#666', fontWeight: 'normal' }}>{saveStatus}</span></h3>
         <button className="close-btn" onClick={() => setIsOpen(false)}>✖</button>
       </div>
 
