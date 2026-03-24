@@ -45,40 +45,41 @@ Want to use Note Stream right now? You don't need to run any code.
 
 To run Note Stream locally for development, you will need to initialize the Backend and Frontend microservices.
 
-### 🔑 API Configuration & Cost Management
-This project is architected to be completely free to run locally. 
-- **Gemini API:** The AI features utilize the Gemini 1.5 Flash model. You can generate an API key via Google AI Studio. The standard free tier (15 RPM / 1M TPM) is more than sufficient for local testing and does not require a billing account.
-- **MongoDB:** The database utilizes MongoDB Atlas. The free `M0` cluster provides 512MB of storage, which is ample for stateful note persistence.
+### 🔑 API Configuration
+- **Gemini API:** Generous free tier (15 RPM / 1M TPM) available via Google AI Studio. No billing account required.
+- **MongoDB:** Utilizes MongoDB Atlas. The free `M0` cluster (512MB) is ample for local testing.
 
-### 1. Repository Setup
+### ⚡ Automated Setup
+We have included a shell script to automate the installation of all microservices and build the extension.
 
-git clone [https://github.com/SlimmShadyyy/note-stream.git](https://github.com/SlimmShadyyy/note-stream.git)
-cd note-stream
+1. Clone the repository and navigate into it:
+   ```bash
+   git clone [https://github.com/SlimmShadyyy/note-stream.git](https://github.com/SlimmShadyyy/note-stream.git)
+   cd note-stream
 
-2. Backend API
-cd backend
-npm install
+2. Run the initialization script:
 
+Bash
+# Make the script executable (Mac/Linux)
+chmod +x setup.sh 
+
+# Run the setup
+./setup.sh
+(Windows users can simply run bash setup.sh in their Git Bash or WSL terminal).
+
+3. Configure Environment Variables:
 Create a .env file in the /backend directory:
+
+Code snippet
 MONGO_URI=your_mongodb_connection_string
 GEMINI_API_KEY=your_gemini_api_key
 
-npm run dev
-# The API will initialize on http://localhost:5000
+4. Start the Development Servers:
+Open two terminal windows to run the frontend and backend simultaneously:
 
-3. Frontend Dashboard
-Open a new terminal session:
-cd dashboard
-npm install
-npm run dev
-# The client interface will initialize on http://localhost:3000
+Terminal 1 (API): cd backend && npm run dev
 
-4. Chrome Extension Build
-Open a final terminal session:
-cd extension
-npm install
-npm run build
-Load the /extension/dist folder into Chrome via chrome://extensions -> Load Unpacked.
-```bash
-git clone [https://github.com/SlimmShadyyy/note-stream.git](https://github.com/SlimmShadyyy/note-stream.git)
-cd note-stream
+Terminal 2 (Client): cd dashboard && npm run dev
+
+5. Load the Extension:
+Open Chrome, navigate to chrome://extensions, enable Developer mode, and select Load unpacked targeting the /extension/dist folder.
