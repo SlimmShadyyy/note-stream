@@ -46,7 +46,7 @@ Want to use Note Stream right now? You don't need to run any code.
 To run Note Stream locally for development, you will need to initialize the Backend and Frontend microservices.
 
 ### 🔑 API Configuration
-- **Gemini API:** Generous free tier (15 RPM / 1M TPM) available via Google AI Studio. No billing account required.
+- **Gemini API:** Powered by the **Gemini 2.5 Flash** model. A free API key can be generated via Google AI Studio. Note that the free tier limits (5 RPM / 250K TPM / 20 RPD) are enforced, so heavy users may need to provide a paid-tier key for extended study sessions.
 - **MongoDB:** Utilizes MongoDB Atlas. The free `M0` cluster (512MB) is ample for local testing.
 
 ### ⚡ Automated Setup
