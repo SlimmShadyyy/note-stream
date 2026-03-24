@@ -58,28 +58,26 @@ We have included a shell script to automate the installation of all microservice
    cd note-stream
 
 2. Run the initialization script:
-
-Bash
-# Make the script executable (Mac/Linux)
-chmod +x setup.sh 
-
-# Run the setup
-./setup.sh
-(Windows users can simply run bash setup.sh in their Git Bash or WSL terminal).
+   ```bash
+   # Make the script executable (Mac/Linux)
+   chmod +x setup.sh 
+   
+   # Run the setup
+   ./setup.sh
+   Windows users can simply run bash setup.sh in their Git Bash or WSL terminal
 
 3. Configure Environment Variables:
-Create a .env file in the /backend directory:
-
-Code snippet
-MONGO_URI=your_mongodb_connection_string
-GEMINI_API_KEY=your_gemini_api_key
+   ```bash
+   Create a .env file in the /backend directory:
+   MONGO_URI=your_mongodb_connection_string
+   GEMINI_API_KEY=your_gemini_api_key
 
 4. Start the Development Servers:
-Open two terminal windows to run the frontend and backend simultaneously:
-
-Terminal 1 (API): cd backend && npm run dev
-
-Terminal 2 (Client): cd dashboard && npm run dev
+   ```bash
+   Open two terminal windows to run the frontend and backend simultaneously:
+   -Terminal 1 (API): cd backend && npm run dev
+   -Terminal 2 (Client): cd dashboard && npm run dev
 
 5. Load the Extension:
-Open Chrome, navigate to chrome://extensions, enable Developer mode, and select Load unpacked targeting the /extension/dist folder.
+   ```bash
+   Open Chrome, navigate to chrome://extensions, enable Developer mode, and select Load unpacked targeting the /extension/dist folder.
