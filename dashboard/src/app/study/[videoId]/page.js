@@ -24,7 +24,7 @@ export default function StudyRoom() {
   const [resultsLog, setResultsLog] = useState([]);
 
   useEffect(() => {
-    fetch(`http://localhost:5000/api/notes/${videoId}`)
+    fetch(`https://note-stream-api-8agu.onrender.com/api/notes/${videoId}`)
       .then((res) => res.json())
       .then((data) => {
         setNoteData(data);
@@ -44,14 +44,14 @@ export default function StudyRoom() {
     if (!noteData?.content) return;
     setIsImproving(true);
     try {
-      const res = await fetch('http://localhost:5000/api/improve-notes', {
+      const res = await fetch('https://note-stream-api-8agu.onrender.com/api/improve-notes', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ currentNotes: noteData.content, videoTitle: noteData.videoTitle })
       });
       const data = await res.json();
       setNoteData({ ...noteData, content: data.improvedNotes });
-      await fetch('http://localhost:5000/api/notes', {
+      await fetch('https://note-stream-api-8agu.onrender.com/api/notes', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ videoId, videoTitle: noteData.videoTitle, content: data.improvedNotes })
@@ -68,7 +68,7 @@ export default function StudyRoom() {
     setResultsLog([]); 
     setAnalysis(null);
     try {
-      const res = await fetch('http://localhost:5000/api/generate-quiz', {
+      const res = await fetch('https://note-stream-api-8agu.onrender.com/api/generate-quiz', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ currentNotes: noteData?.content, videoTitle: noteData?.videoTitle })
@@ -94,7 +94,7 @@ export default function StudyRoom() {
   const getAnalysis = async () => {
     setIsAnalyzing(true);
     try {
-      const res = await fetch('http://localhost:5000/api/analyze-domain', {
+      const res = await fetch('https://note-stream-api-8agu.onrender.com/api/analyze-domain', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ quizResults: resultsLog, videoTitle: noteData.videoTitle })
@@ -118,7 +118,7 @@ export default function StudyRoom() {
   const handleImproveFromQuiz = async () => {
     setIsImproving(true);
     try {
-      const res = await fetch('http://localhost:5000/api/improve-notes-from-quiz', {
+      const res = await fetch('https://note-stream-api-8agu.onrender.com/api/improve-notes-from-quiz', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ 
@@ -129,7 +129,7 @@ export default function StudyRoom() {
       });
       const data = await res.json();
       setNoteData({ ...noteData, content: data.improvedNotes });
-      await fetch('http://localhost:5000/api/notes', {
+      await fetch('https://note-stream-api-8agu.onrender.com/api/notes', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ videoId, videoTitle: noteData.videoTitle, content: data.improvedNotes })

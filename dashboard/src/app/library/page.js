@@ -8,7 +8,7 @@ export default function Library() {
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    fetch("http://localhost:5000/api/notes")
+    fetch("https://note-stream-api-8agu.onrender.com/api/notes")
       .then((res) => res.json())
       .then((data) => {
         setNotesLibrary(data);
