@@ -5,7 +5,6 @@ export default function LandingPage() {
   return (
     <main className="min-h-screen bg-[#050505] text-slate-300 font-sans selection:bg-indigo-500/30 relative overflow-hidden">
 
-
       <div className="absolute top-[-10%] left-1/2 -translate-x-1/2 w-[1200px] h-[700px] bg-indigo-600/5 rounded-full blur-[150px] pointer-events-none"></div>
 
       <nav className="max-w-6xl mx-auto px-6 py-10 flex justify-between items-center relative z-10 border-b border-white/5">
@@ -15,9 +14,14 @@ export default function LandingPage() {
           </div>
           <span className="font-bold tracking-[0.2em] text-white text-sm uppercase">Note Stream</span>
         </div>
-        <a href="https://github.com/SlimmShadyyy/note-stream" target="_blank" className="text-[10px] font-bold tracking-widest bg-white/5 text-white px-6 py-2.5 rounded-sm hover:bg-white hover:text-black border border-white/10 transition-all uppercase">
-          Source Code & Docs
-        </a>
+        <div className="flex gap-4">
+          <Link href="/library" className="hidden md:flex text-[10px] font-bold tracking-widest text-slate-400 hover:text-white px-6 py-2.5 items-center transition-all uppercase">
+            Dashboard
+          </Link>
+          <a href="https://github.com/SlimmShadyyy/note-stream" target="_blank" className="text-[10px] font-bold tracking-widest bg-white/5 text-white px-6 py-2.5 rounded-sm hover:bg-white hover:text-black border border-white/10 transition-all uppercase">
+            Source Code
+          </a>
+        </div>
       </nav>
 
       <section className="max-w-6xl mx-auto px-6 pt-32 pb-40 relative z-10">
@@ -29,6 +33,15 @@ export default function LandingPage() {
           <p className="text-xl md:text-2xl text-slate-400 mb-12 max-w-2xl leading-relaxed font-light italic">
             "Transforming passive video consumption into structured, stateful knowledge."
           </p>
+
+          <div className="flex flex-col md:flex-row gap-6 mt-12">
+            <a href="https://github.com/SlimmShadyyy/note-stream/releases/tag/v1.0.0" target="_blank" className="px-8 py-4 bg-white text-black font-bold tracking-widest uppercase text-xs rounded-full hover:scale-105 transition-transform text-center shadow-[0_0_40px_rgba(255,255,255,0.2)]">
+              Download Extension (.zip)
+            </a>
+            <Link href="/library" className="px-8 py-4 bg-white/[0.05] text-white border border-white/10 font-bold tracking-widest uppercase text-xs rounded-full hover:bg-white/[0.1] transition-all text-center">
+              Open Web Dashboard
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -69,7 +82,6 @@ export default function LandingPage() {
             </p>
           </div>
 
-
           <div className="md:col-span-12 p-12 bg-white/[0.02] border border-white/10 rounded-3xl flex flex-col md:flex-row justify-between items-center group hover:bg-white/[0.04] transition-all">
             <div className="max-w-xl">
               <h3 className="text-xs font-bold tracking-[0.2em] text-slate-500 uppercase mb-4">Output Engine</h3>
@@ -88,12 +100,11 @@ export default function LandingPage() {
       <section className="max-w-6xl mx-auto px-6 py-48 border-t border-white/5 relative z-10">
         <div className="absolute inset-0 bg-indigo-500/5 blur-[120px] rounded-full pointer-events-none"></div>
         
-        <p className="text-[50px] font-bold tracking-[0.5em] text-slate-500 uppercase mb-24 text-center">
+        <p className="text-[12px] font-bold tracking-[0.5em] text-slate-500 uppercase mb-24 text-center">
           Engineered With
         </p>
         
         <div className="grid grid-cols-2 md:grid-cols-5 gap-8 items-center relative z-10">
-
            <div className="flex justify-center items-center h-40 bg-white/[0.03] border border-white/10 rounded-[2rem] hover:bg-white/[0.06] hover:border-white/20 transition-all duration-500 group shadow-2xl">
              <img src="/tech/nextjs.png" alt="Next.js" className="h-16 md:h-20 w-auto object-contain transition-transform duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_rgba(255,255,255,0.2)]" />
            </div>
@@ -103,7 +114,6 @@ export default function LandingPage() {
            <div className="flex justify-center items-center h-40 bg-white/[0.03] border border-white/10 rounded-[2rem] hover:bg-white/[0.06] hover:border-white/20 transition-all duration-500 group shadow-2xl">
              <img src="/tech/mongodb.png" alt="MongoDB" className="h-16 md:h-20 w-auto object-contain transition-transform duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_rgba(71,162,72,0.2)]" />
            </div>
-
            <div className="flex justify-center items-center h-40 bg-white/[0.03] border border-white/10 rounded-[2rem] hover:bg-white/[0.06] hover:border-white/20 transition-all duration-500 group shadow-2xl">
              <img src="/tech/google-ai.png" alt="Gemini AI" className="h-12 md:h-16 w-auto object-contain transition-transform duration-500 group-hover:scale-110 group-hover:drop-shadow-[0_0_20px_rgba(100,150,255,0.2)]" />
            </div>
@@ -115,11 +125,12 @@ export default function LandingPage() {
         <div className="mt-20 flex justify-center relative z-10">
           <div className="px-10 py-4 bg-white/[0.03] border border-white/10 rounded-full backdrop-blur-md">
             <p className="text-[11px] font-bold tracking-[0.4em] text-white uppercase">
-              Core Stack <span className="mx-4 text-slate-700">|</span> <span className="text-indigo-400">Chrome Extension API</span>
+              Core Stack <span className="mx-4 text-slate-700">|</span> <span className="text-indigo-400">Native DOM Injection</span> & Stateful React UI
             </p>
           </div>
         </div>
       </section>
+
       <footer className="max-w-6xl mx-auto px-6 py-24 border-t border-white/5 flex flex-col md:flex-row justify-between items-center gap-10 relative z-10">
         <div className="flex items-center gap-3 grayscale opacity-50">
            <div className="w-5 h-5 bg-white rounded-sm transform rotate-45"></div>
@@ -127,15 +138,14 @@ export default function LandingPage() {
         </div>
         
         <p className="text-[11px] font-medium tracking-[0.3em] text-slate-600 uppercase">
-          Technical Documentation • 2026
+          Deployed 2026 • Live Production
         </p>
 
         <div className="flex gap-12">
            <a href="https://github.com/SlimmShadyyy/note-stream" target="_blank" className="text-[11px] font-bold text-white hover:text-indigo-400 uppercase tracking-[0.3em] transition-all border-b-2 border-transparent hover:border-indigo-400 pb-2">Repository</a>
-           <a href="https://github.com/SlimmShadyyy/note-stream" target="_blank" className="text-[11px] font-bold text-white hover:text-indigo-400 uppercase tracking-[0.3em] transition-all border-b-2 border-transparent hover:border-indigo-400 pb-2">Docs</a>
+           <a href="https://github.com/SlimmShadyyy/note-stream#readme" target="_blank" className="text-[11px] font-bold text-white hover:text-indigo-400 uppercase tracking-[0.3em] transition-all border-b-2 border-transparent hover:border-indigo-400 pb-2">Docs</a>
         </div>
       </footer>
-
 
     </main>
   );
